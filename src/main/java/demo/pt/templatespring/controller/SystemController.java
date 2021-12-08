@@ -22,9 +22,9 @@ public class SystemController {
     @GetMapping("/version")
 	@PostConstruct
 	public String version() {
-		final var appName = buildProperties.getName();
-		final var appVersion = buildProperties.getVersion();
-		final var result = "application: " + appName + " version: " + appVersion;
+		final String appName = buildProperties.getName();
+		final String appVersion = buildProperties.getVersion();
+		final String result = "application: " + appName + " version: " + appVersion;
 
 		logger.info(result);
 		return result;
