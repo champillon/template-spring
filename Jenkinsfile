@@ -1,4 +1,4 @@
-pipeline {
+node {
     agent any
 
     stages {
@@ -14,13 +14,6 @@ pipeline {
             steps {
                 echo 'building project...'
                 sh "mvn clean install"
-            }
-        }
-        stage('Making ssh') {
-            steps {
-                withCredentials([string(credentialsId: 'provision', variable: 'This is my Password')]) {
-                    sh "whoami"
-                }
             }
         }
     }
