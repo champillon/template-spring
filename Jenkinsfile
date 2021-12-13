@@ -5,4 +5,8 @@ node {
         echo 'Maven VERSION'
         sh 'mvn -version'
     }
+    stage('Building') {
+        echo 'Building via Maven'
+        sh 'mvn clean install'
+    }
 }
