@@ -1,7 +1,7 @@
 pipeline {
     agent any
 
-    stages {
+    node {
         stage('Checking') {
             steps {
                 echo "Java VERSION"
