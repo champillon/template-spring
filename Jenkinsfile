@@ -16,10 +16,11 @@ pipeline {
                 sh "mvn clean install"
             }
         }
-        stage('Making Docker') {
+        stage('Making ssh') {
             steps {
-                echo 'making docker file ...'
-                sh "docker build -t passapong/spring-template ."
+                withCredentials([string(credentialsId: 'provision', variable: 'This is my Password')]) {
+                    sh "whoami"
+                }
             }
         }
     }
