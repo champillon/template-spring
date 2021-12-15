@@ -7,7 +7,7 @@ node {
     }
     stage('Build') {
         echo 'Building via Maven'
-        sh 'ls'
+        sh 'pwd'
         sh 'mvn clean install'
     }
     stage('Deploy to Runtime') {
