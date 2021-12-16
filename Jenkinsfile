@@ -24,13 +24,30 @@ pipeline {
         stage('Building') {
             steps {
                 echo 'building project...'
-                sh 'mvn clean deploy -Ddocker.user=DOCKERHUB_CREDENTIALS_USR -Ddocker.password=DOCKERHUB_CREDENTIALS_PSW -Ddocker.url=https://hub.docker.com/'
+                sh 'mvn clean install'
+            }
+        }
+        stage('Login') {
+            steps {
+                sh 'docker login -u $DOCKERHUB_CREDENTIALS_USR -p $DOCKERHUB_CREDENTIALS_PSW'
+            }
+        }
+        stage('Push') {
+
+            steps {
+                sh 'docker push template-spring:0.0.2-SNAPSHOT'
             }
         }
         stage('Deploy to Runtime') {
             steps {
                 sshCommand remote: remote, command: 'whoami', failOnError:'false'
             }
+        }
+    }
+
+    post {
+        always {
+            sh 'docker logout'
         }
     }
 }
