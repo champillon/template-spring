@@ -9,8 +9,8 @@ pipeline {
     agent any
 
     environment {
-		DOCKERHUB_CREDENTIALS=credentials('docker-hub-user')
-	}
+        DOCKERHUB_CREDENTIALS=credentials('docker-hub-user')
+    }
 
     stages {
         stage('Checking') {
@@ -28,16 +28,16 @@ pipeline {
             }
         }
         stage('Login') {
-			steps {
-				sh 'docker login -u $DOCKERHUB_CREDENTIALS_USR -p $DOCKERHUB_CREDENTIALS_PSW'
-			}
-		}
+            steps {
+                sh 'docker login -u $DOCKERHUB_CREDENTIALS_USR -p $DOCKERHUB_CREDENTIALS_PSW'
+            }
+        }
         stage('Push') {
 
-			steps {
-				sh 'docker push bharathirajatut/nodeapp:latest'
-			}
-		}
+            steps {
+                sh 'docker push bharathirajatut/nodeapp:latest'
+            }
+        }
         stage('Deploy to Runtime') {
             steps {
                 sshCommand remote: remote, command: 'whoami', failOnError:'false'
@@ -46,8 +46,8 @@ pipeline {
     }
 
     post {
-		always {
-			sh 'docker logout'
-		}
-	}
+        always {
+            sh 'docker logout'
+        }
+    }
 }
