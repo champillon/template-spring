@@ -1,6 +1,6 @@
 def remote = [:]
 remote.name = 'runtime'
-remote.host = '35.225.48.218'
+remote.host = 'runtime.passapong.dev'
 remote.allowAnyHosts = true
 remote.user = 'provision'
 remote.password = 'This is my Password'
