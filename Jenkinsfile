@@ -27,13 +27,9 @@ pipeline {
                 sh 'mvn clean install'
             }
         }
-        stage('Login') {
-            steps {
-                sh 'docker login -u $DOCKERHUB_CREDENTIALS_USR -p $DOCKERHUB_CREDENTIALS_PSW https://registry-1.docker.io'
-            }
-        }
         stage('Push') {
             steps {
+                sh 'docker login -u $DOCKERHUB_CREDENTIALS_USR -p $DOCKERHUB_CREDENTIALS_PSW https://registry-1.docker.io'
                 sh 'docker tag template-spring:0.0.2-SNAPSHOT  champillon/template-spring:0.0.2-SNAPSHOT'
                 sh 'docker push champillon/template-spring:0.0.2-SNAPSHOT'
             }
