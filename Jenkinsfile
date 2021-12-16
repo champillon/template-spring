@@ -35,6 +35,7 @@ pipeline {
         stage('Push') {
 
             steps {
+                sh 'docker ls'
                 sh 'docker push bharathirajatut/nodeapp:latest'
             }
         }
