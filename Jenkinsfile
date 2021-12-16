@@ -23,9 +23,8 @@ pipeline {
         }
         stage('Deploy to Runtime') {
             steps {
-                withCredentials([usernamePassword(credentialsId: '7ce2c7d5-dba1-4569-8efa-bc1dd846e8c0', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-                    remote.user = USERNAME
-                    remote.password = PASSWORD
+                withCredentials([usernamePassword(credentialsId: '7ce2c7d5-dba1-4569-8efa-bc1dd846e8c0', usernameVariable: 'provision', passwordVariable: 'PASSWORD')]) {
+                    remote.user = provision
                     
                     sshCommand remote: remote, command: 'whoami', failOnError:'false'
                 }
