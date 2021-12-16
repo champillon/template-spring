@@ -33,9 +33,9 @@ pipeline {
             }
         }
         stage('Push') {
-
             steps {
-                sh 'docker push template-spring:0.0.2-SNAPSHOT'
+                sh 'docker tag template-spring:0.0.2-SNAPSHOT  champillon/template-spring:0.0.2-SNAPSHOT'
+                sh 'docker push champillon/template-spring:0.0.2-SNAPSHOT'
             }
         }
         stage('Deploy to Runtime') {
