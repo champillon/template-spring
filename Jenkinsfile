@@ -35,8 +35,7 @@ pipeline {
         stage('Push') {
 
             steps {
-                sh 'docker ls'
-                sh 'docker push bharathirajatut/nodeapp:latest'
+                sh 'docker push template-spring:latest'
             }
         }
         stage('Deploy to Runtime') {
