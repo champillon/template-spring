@@ -31,7 +31,7 @@ pipeline {
             steps {
                 sh 'docker login -u $DOCKERHUB_CREDENTIALS_USR -p $DOCKERHUB_CREDENTIALS_PSW https://registry-1.docker.io'
                 sh 'docker tag template-spring:0.0.2-SNAPSHOT  champillon/template-spring:0.0.2-SNAPSHOT'
-                sh 'docker push registry-1.docker.io champillon/template-spring:0.0.2-SNAPSHOT'
+                sh 'docker push registry-1.docker.io:5000/champillon/template-spring:0.0.2-SNAPSHOT'
             }
         }
         stage('Deploy to Runtime') {
