@@ -29,21 +29,16 @@ pipeline {
         }
         stage('Push') {
             steps {
-                sh 'docker login -u $DOCKERHUB_CREDENTIALS_USR -p $DOCKERHUB_CREDENTIALS_PSW https://registry-1.docker.io'
-                sh 'docker tag template-spring:0.0.2-SNAPSHOT  champillon/template-spring:0.0.2-SNAPSHOT'
-                sh 'docker push template-spring:0.0.2-SNAPSHOT'
+                withDockerRegistry([ credentialsId: "docker-hub-user", url: "" ]) {
+                    sh 'docker tag template-spring:0.0.2-SNAPSHOT  champillon/template-spring:0.0.2-SNAPSHOT'
+                    sh 'docker push champillon/template-spring:0.0.2-SNAPSHOT'
+                }
             }
         }
         stage('Deploy to Runtime') {
             steps {
                 sshCommand remote: remote, command: 'whoami', failOnError:'false'
             }
-        }
-    }
-
-    post {
-        always {
-            sh 'docker logout'
         }
     }
 }
