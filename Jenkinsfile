@@ -17,8 +17,10 @@ pipeline {
             }
         }
         stage('Deploy to Runtime') {
-            withCredentials([usernamePassword(credentialsId: 'f1b7f160-d0c6-4940-b690-f3c9acaa1917', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-                sshCommand remote: remote, command: 'whoami', failOnError:'false'
+            steps {
+                withCredentials([usernamePassword(credentialsId: 'f1b7f160-d0c6-4940-b690-f3c9acaa1917', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+                    sshCommand remote: remote, command: 'whoami', failOnError:'false'
+                }
             }
         }
     }
