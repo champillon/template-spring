@@ -9,7 +9,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKERHUB_CREDENTIALS=credentials('docker-hub-user')
+        DOCKERHUB_CREDENTIALS = credentials('docker-hub-user')
     }
 
     stages {
@@ -29,7 +29,7 @@ pipeline {
         }
         stage('Push') {
             steps {
-                withDockerRegistry([ credentialsId: "docker-hub-user", url: "" ]) {
+                withDockerRegistry([ credentialsId: 'docker-hub-user', url: '' ]) {
                     sh 'docker tag template-spring:0.0.2-SNAPSHOT  champillon/template-spring:0.0.2-SNAPSHOT'
                     sh 'docker push champillon/template-spring:0.0.2-SNAPSHOT'
                 }
@@ -37,7 +37,9 @@ pipeline {
         }
         stage('Deploy to Runtime') {
             steps {
-                sshCommand remote: remote, command: 'whoami', failOnError:'false'
+                withDockerRegistry([ credentialsId: 'docker-hub-user', url: '' ]) {
+                    sshCommand remote: remote, command: 'docker run -d -p 80:8080 champillon/template-spring:0.0.2-SNAPSHOT', failOnError:'false'
+                }
             }
         }
     }
