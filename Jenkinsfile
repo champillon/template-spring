@@ -21,6 +21,15 @@ pipeline {
                 sh 'mvn -version'
             }
         }
+        stage('Vulner Scan') {
+            steps {
+                echo 'Scanning...'
+                snykSecurity(
+                snykInstallation: 'snyk@latest',
+                snykTokenId: 'original-snykj-api-token'
+                )
+            }
+        }
         stage('Building') {
             steps {
                 echo 'building project...'
