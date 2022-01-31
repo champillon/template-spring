@@ -21,6 +21,20 @@ pipeline {
                 sh 'mvn -version'
             }
         }
+        stage('Check for Vulnerabilities') {
+            steps {
+                container ('snyk') {
+                    withCredentials([string(credentialsId: 'SNYK_TOKEN', variable: 'SNYK_TOKEN')]) {
+                        sh '''
+                        ls
+                        cd template-spring
+                        snyk config set api=$SNYK_TOKEN
+                        snyk test
+                        '''
+                    }
+                }
+            }
+        }
         stage('Building') {
             steps {
                 echo 'building project...'
