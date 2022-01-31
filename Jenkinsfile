@@ -26,7 +26,7 @@ pipeline {
                 echo 'Scanning...'
                 snykSecurity(
                 snykInstallation: 'snyk@latest',
-                snykTokenId: 'original-snykj-api-token'
+                snykTokenId: 'original-snyk-api-token'
                 )
             }
         }
