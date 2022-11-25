@@ -7,7 +7,18 @@ spring template for microservices
 3. add snyk api token from snyk.io
 
 # maven command
-- run spring-boot
+1. run spring-boot
 ```
 mvn spring-boot:run
+```
+
+# setup prometheus docker
+1. pull docker image
+```
+docker pull prom/prometheus
+```
+
+2. run prometheus image
+```
+docker run -d --name=prometheus -p 9090:9090 -v [path toprometheus.yml]:/etc/prometheus/prometheus.yml prom/prometheus --config.file=/etc/prometheus/prometheus.yml
 ```
