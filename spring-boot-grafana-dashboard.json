@@ -1,12 +1,19 @@
 {
+  "__inputs": [
+    {
+      "name": "DS_PROMETHEUS",
+      "label": "Prometheus",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "prometheus",
+      "pluginName": "Prometheus"
+    }
+  ],
   "annotations": {
     "list": [
       {
         "builtIn": 1,
-        "datasource": {
-          "type": "grafana",
-          "uid": "-- Grafana --"
-        },
+        "datasource": "${DS_PROMETHEUS}",
         "enable": true,
         "hide": true,
         "iconColor": "rgba(0, 211, 255, 1)",
@@ -32,10 +39,7 @@
   "panels": [
     {
       "collapsed": false,
-      "datasource": {
-        "type": "prometheus",
-        "uid": "95ZdgN5Vz"
-      },
+      "datasource": "${DS_PROMETHEUS}",
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -46,10 +50,7 @@
       "panels": [],
       "targets": [
         {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "95ZdgN5Vz"
-          },
+          "datasource": "${DS_PROMETHEUS}",
           "refId": "A"
         }
       ],
@@ -57,10 +58,7 @@
       "type": "row"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "95ZdgN5Vz"
-      },
+      "datasource": "${DS_PROMETHEUS}",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -121,10 +119,7 @@
       "pluginVersion": "9.2.6",
       "targets": [
         {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "95ZdgN5Vz"
-          },
+          "datasource": "${DS_PROMETHEUS}",
           "expr": "process_uptime_seconds{}",
           "format": "time_series",
           "intervalFactor": 2,
@@ -138,10 +133,7 @@
       "type": "stat"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "95ZdgN5Vz"
-      },
+      "datasource": "${DS_PROMETHEUS}",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -206,10 +198,7 @@
       "pluginVersion": "9.2.6",
       "targets": [
         {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "95ZdgN5Vz"
-          },
+          "datasource": "${DS_PROMETHEUS}",
           "expr": "sum(jvm_memory_used_bytes{area=\"heap\"})*100/sum(jvm_memory_max_bytes{area=\"heap\"})",
           "format": "time_series",
           "intervalFactor": 1,
@@ -222,10 +211,7 @@
       "type": "gauge"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "95ZdgN5Vz"
-      },
+      "datasource": "${DS_PROMETHEUS}",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -300,10 +286,7 @@
       "pluginVersion": "9.2.6",
       "targets": [
         {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "95ZdgN5Vz"
-          },
+          "datasource": "${DS_PROMETHEUS}",
           "expr": "sum(jvm_memory_used_bytes{area=\"nonheap\"})*100/sum(jvm_memory_max_bytes{area=\"nonheap\"})",
           "format": "time_series",
           "intervalFactor": 2,
@@ -320,10 +303,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": {
-        "type": "prometheus",
-        "uid": "95ZdgN5Vz"
-      },
+      "datasource": "${DS_PROMETHEUS}",
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
@@ -361,10 +341,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "95ZdgN5Vz"
-          },
+          "datasource": "${DS_PROMETHEUS}",
           "expr": "process_files_open{}",
           "format": "time_series",
           "intervalFactor": 1,
@@ -372,10 +349,7 @@
           "refId": "A"
         },
         {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "95ZdgN5Vz"
-          },
+          "datasource": "${DS_PROMETHEUS}",
           "expr": "process_files_max{}",
           "format": "time_series",
           "intervalFactor": 1,
@@ -414,10 +388,7 @@
       }
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "95ZdgN5Vz"
-      },
+      "datasource": "${DS_PROMETHEUS}",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -477,10 +448,7 @@
       "pluginVersion": "9.2.6",
       "targets": [
         {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "95ZdgN5Vz"
-          },
+          "datasource": "${DS_PROMETHEUS}",
           "expr": "process_start_time_seconds{}*1000",
           "format": "time_series",
           "intervalFactor": 2,
@@ -498,10 +466,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": {
-        "type": "prometheus",
-        "uid": "95ZdgN5Vz"
-      },
+      "datasource": "${DS_PROMETHEUS}",
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
@@ -540,10 +505,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "95ZdgN5Vz"
-          },
+          "datasource": "${DS_PROMETHEUS}",
           "expr": "system_cpu_usage{}",
           "format": "time_series",
           "intervalFactor": 1,
@@ -551,10 +513,7 @@
           "refId": "A"
         },
         {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "95ZdgN5Vz"
-          },
+          "datasource": "${DS_PROMETHEUS}",
           "expr": "process_cpu_usage{}",
           "format": "time_series",
           "intervalFactor": 1,
@@ -597,10 +556,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": {
-        "type": "prometheus",
-        "uid": "95ZdgN5Vz"
-      },
+      "datasource": "${DS_PROMETHEUS}",
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
@@ -639,10 +595,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "95ZdgN5Vz"
-          },
+          "datasource": "${DS_PROMETHEUS}",
           "expr": "system_load_average_1m{}",
           "format": "time_series",
           "intervalFactor": 1,
@@ -650,10 +603,7 @@
           "refId": "A"
         },
         {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "95ZdgN5Vz"
-          },
+          "datasource": "${DS_PROMETHEUS}",
           "expr": "system_cpu_count{}",
           "format": "time_series",
           "intervalFactor": 1,
@@ -693,10 +643,7 @@
     },
     {
       "collapsed": false,
-      "datasource": {
-        "type": "prometheus",
-        "uid": "95ZdgN5Vz"
-      },
+      "datasource": "${DS_PROMETHEUS}",
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -707,10 +654,7 @@
       "panels": [],
       "targets": [
         {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "95ZdgN5Vz"
-          },
+          "datasource": "${DS_PROMETHEUS}",
           "refId": "A"
         }
       ],
@@ -722,10 +666,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": {
-        "type": "prometheus",
-        "uid": "95ZdgN5Vz"
-      },
+      "datasource": "${DS_PROMETHEUS}",
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
@@ -766,10 +707,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "95ZdgN5Vz"
-          },
+          "datasource": "${DS_PROMETHEUS}",
           "expr": "jvm_memory_used_bytes{id=\"$memory_pool_heap\"}",
           "format": "time_series",
           "intervalFactor": 1,
@@ -777,10 +715,7 @@
           "refId": "C"
         },
         {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "95ZdgN5Vz"
-          },
+          "datasource": "${DS_PROMETHEUS}",
           "expr": "jvm_memory_committed_bytes{id=\"$memory_pool_heap\"}",
           "format": "time_series",
           "intervalFactor": 1,
@@ -788,10 +723,7 @@
           "refId": "A"
         },
         {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "95ZdgN5Vz"
-          },
+          "datasource": "${DS_PROMETHEUS}",
           "expr": "jvm_memory_max_bytes{id=\"$memory_pool_heap\"}",
           "format": "time_series",
           "intervalFactor": 1,
@@ -831,10 +763,7 @@
     },
     {
       "collapsed": false,
-      "datasource": {
-        "type": "prometheus",
-        "uid": "95ZdgN5Vz"
-      },
+      "datasource": "${DS_PROMETHEUS}",
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -845,10 +774,7 @@
       "panels": [],
       "targets": [
         {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "95ZdgN5Vz"
-          },
+          "datasource": "${DS_PROMETHEUS}",
           "refId": "A"
         }
       ],
@@ -860,10 +786,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": {
-        "type": "prometheus",
-        "uid": "95ZdgN5Vz"
-      },
+      "datasource": "${DS_PROMETHEUS}",
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
@@ -904,10 +827,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "95ZdgN5Vz"
-          },
+          "datasource": "${DS_PROMETHEUS}",
           "expr": "irate(jvm_gc_pause_seconds_count{}[5m])",
           "format": "time_series",
           "intervalFactor": 1,
@@ -950,10 +870,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": {
-        "type": "prometheus",
-        "uid": "95ZdgN5Vz"
-      },
+      "datasource": "${DS_PROMETHEUS}",
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
@@ -994,10 +911,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "95ZdgN5Vz"
-          },
+          "datasource": "${DS_PROMETHEUS}",
           "expr": "irate(jvm_gc_pause_seconds_sum{}[5m])",
           "format": "time_series",
           "intervalFactor": 1,
@@ -1037,10 +951,7 @@
     },
     {
       "collapsed": false,
-      "datasource": {
-        "type": "prometheus",
-        "uid": "95ZdgN5Vz"
-      },
+      "datasource": "${DS_PROMETHEUS}",
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -1051,10 +962,7 @@
       "panels": [],
       "targets": [
         {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "95ZdgN5Vz"
-          },
+          "datasource": "${DS_PROMETHEUS}",
           "refId": "A"
         }
       ],
@@ -1066,10 +974,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": {
-        "type": "prometheus",
-        "uid": "95ZdgN5Vz"
-      },
+      "datasource": "${DS_PROMETHEUS}",
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
@@ -1109,10 +1014,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "95ZdgN5Vz"
-          },
+          "datasource": "${DS_PROMETHEUS}",
           "editorMode": "code",
           "expr": "irate(http_server_requests_seconds_count{uri!~\".*actuator.*\"}[5m])",
           "format": "time_series",
@@ -1157,10 +1059,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": {
-        "type": "prometheus",
-        "uid": "95ZdgN5Vz"
-      },
+      "datasource": "${DS_PROMETHEUS}",
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
@@ -1200,10 +1099,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "95ZdgN5Vz"
-          },
+          "datasource": "${DS_PROMETHEUS}",
           "editorMode": "code",
           "expr": "irate(http_server_requests_seconds_sum{exception=\"None\", uri!~\".*actuator.*\"}[5m]) / irate(http_server_requests_seconds_count{exception=\"None\", uri!~\".*actuator.*\"}[5m])",
           "format": "time_series",
@@ -1246,10 +1142,7 @@
     },
     {
       "collapsed": false,
-      "datasource": {
-        "type": "prometheus",
-        "uid": "95ZdgN5Vz"
-      },
+      "datasource": "${DS_PROMETHEUS}",
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -1260,10 +1153,7 @@
       "panels": [],
       "targets": [
         {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "95ZdgN5Vz"
-          },
+          "datasource": "${DS_PROMETHEUS}",
           "refId": "A"
         }
       ],
@@ -1271,10 +1161,7 @@
       "type": "row"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "95ZdgN5Vz"
-      },
+      "datasource": "${DS_PROMETHEUS}",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -1333,10 +1220,7 @@
       "pluginVersion": "9.2.6",
       "targets": [
         {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "95ZdgN5Vz"
-          },
+          "datasource": "${DS_PROMETHEUS}",
           "expr": "tomcat_global_error_total{}",
           "format": "time_series",
           "intervalFactor": 1,
@@ -1352,10 +1236,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": {
-        "type": "prometheus",
-        "uid": "95ZdgN5Vz"
-      },
+      "datasource": "${DS_PROMETHEUS}",
       "decimals": 0,
       "fill": 1,
       "fillGradient": 0,
@@ -1395,10 +1276,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "95ZdgN5Vz"
-          },
+          "datasource": "${DS_PROMETHEUS}",
           "expr": "tomcat_sessions_active_current{}",
           "format": "time_series",
           "intervalFactor": 1,
@@ -1442,10 +1320,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": {
-        "type": "prometheus",
-        "uid": "95ZdgN5Vz"
-      },
+      "datasource": "${DS_PROMETHEUS}",
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
@@ -1484,10 +1359,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "95ZdgN5Vz"
-          },
+          "datasource": "${DS_PROMETHEUS}",
           "expr": "irate(tomcat_global_sent_bytes_total{}[5m])",
           "format": "time_series",
           "intervalFactor": 1,
@@ -1495,10 +1367,7 @@
           "refId": "A"
         },
         {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "95ZdgN5Vz"
-          },
+          "datasource": "${DS_PROMETHEUS}",
           "expr": "irate(tomcat_global_received_bytes_total{}[5m])",
           "format": "time_series",
           "intervalFactor": 1,
@@ -1537,10 +1406,7 @@
       }
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "95ZdgN5Vz"
-      },
+      "datasource": "${DS_PROMETHEUS}",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -1599,10 +1465,7 @@
       "pluginVersion": "9.2.6",
       "targets": [
         {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "95ZdgN5Vz"
-          },
+          "datasource": "${DS_PROMETHEUS}",
           "expr": "tomcat_threads_config_max{}",
           "format": "time_series",
           "intervalFactor": 1,
@@ -1618,10 +1481,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": {
-        "type": "prometheus",
-        "uid": "95ZdgN5Vz"
-      },
+      "datasource": "${DS_PROMETHEUS}",
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
@@ -1660,10 +1520,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "95ZdgN5Vz"
-          },
+          "datasource": "${DS_PROMETHEUS}",
           "expr": "tomcat_threads_current{}",
           "format": "time_series",
           "intervalFactor": 1,
@@ -1671,10 +1528,7 @@
           "refId": "A"
         },
         {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "95ZdgN5Vz"
-          },
+          "datasource": "${DS_PROMETHEUS}",
           "expr": "tomcat_threads_busy{}",
           "format": "time_series",
           "intervalFactor": 1,
@@ -1714,10 +1568,7 @@
     },
     {
       "collapsed": false,
-      "datasource": {
-        "type": "prometheus",
-        "uid": "95ZdgN5Vz"
-      },
+      "datasource": "${DS_PROMETHEUS}",
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -1728,10 +1579,7 @@
       "panels": [],
       "targets": [
         {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "95ZdgN5Vz"
-          },
+          "datasource": "${DS_PROMETHEUS}",
           "refId": "A"
         }
       ],
@@ -1743,10 +1591,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": {
-        "type": "prometheus",
-        "uid": "95ZdgN5Vz"
-      },
+      "datasource": "${DS_PROMETHEUS}",
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
@@ -1786,10 +1631,7 @@
       "targets": [
         {
           "alias": "",
-          "datasource": {
-            "type": "prometheus",
-            "uid": "95ZdgN5Vz"
-          },
+          "datasource": "${DS_PROMETHEUS}",
           "expr": "irate(logback_events_total{level=\"info\"}[5m])",
           "format": "time_series",
           "intervalFactor": 1,
@@ -1833,10 +1675,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": {
-        "type": "prometheus",
-        "uid": "95ZdgN5Vz"
-      },
+      "datasource": "${DS_PROMETHEUS}",
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
@@ -1876,10 +1715,7 @@
       "targets": [
         {
           "alias": "",
-          "datasource": {
-            "type": "prometheus",
-            "uid": "95ZdgN5Vz"
-          },
+          "datasource": "${DS_PROMETHEUS}",
           "expr": "irate(logback_events_total{level=\"error\"}[5m])",
           "format": "time_series",
           "intervalFactor": 1,
@@ -1923,10 +1759,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": {
-        "type": "prometheus",
-        "uid": "95ZdgN5Vz"
-      },
+      "datasource": "${DS_PROMETHEUS}",
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
@@ -1966,10 +1799,7 @@
       "targets": [
         {
           "alias": "",
-          "datasource": {
-            "type": "prometheus",
-            "uid": "95ZdgN5Vz"
-          },
+          "datasource": "${DS_PROMETHEUS}",
           "expr": "irate(logback_events_total{level=\"warn\"}[5m])",
           "format": "time_series",
           "intervalFactor": 1,
@@ -2013,10 +1843,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": {
-        "type": "prometheus",
-        "uid": "95ZdgN5Vz"
-      },
+      "datasource": "${DS_PROMETHEUS}",
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
@@ -2056,10 +1883,7 @@
       "targets": [
         {
           "alias": "",
-          "datasource": {
-            "type": "prometheus",
-            "uid": "95ZdgN5Vz"
-          },
+          "datasource": "${DS_PROMETHEUS}",
           "expr": "irate(logback_events_total{level=\"debug\"}[5m])",
           "format": "time_series",
           "intervalFactor": 1,
@@ -2103,10 +1927,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": {
-        "type": "prometheus",
-        "uid": "95ZdgN5Vz"
-      },
+      "datasource": "${DS_PROMETHEUS}",
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
@@ -2146,10 +1967,7 @@
       "targets": [
         {
           "alias": "",
-          "datasource": {
-            "type": "prometheus",
-            "uid": "95ZdgN5Vz"
-          },
+          "datasource": "${DS_PROMETHEUS}",
           "expr": "irate(logback_events_total{level=\"trace\"}[5m])",
           "format": "time_series",
           "intervalFactor": 1,
@@ -2202,10 +2020,7 @@
           "text": "None",
           "value": ""
         },
-        "datasource": {
-          "type": "prometheus",
-          "uid": "95ZdgN5Vz"
-        },
+        "datasource": "${DS_PROMETHEUS}",
         "definition": "",
         "hide": 0,
         "includeAll": false,
@@ -2232,10 +2047,7 @@
           "text": "All",
           "value": "$__all"
         },
-        "datasource": {
-          "type": "prometheus",
-          "uid": "95ZdgN5Vz"
-        },
+        "datasource": "${DS_PROMETHEUS}",
         "definition": "",
         "hide": 0,
         "includeAll": true,
