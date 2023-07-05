@@ -27,7 +27,7 @@ public class SystemController {
 		final String appName = buildProperties.getName();
 		final String appVersion = buildProperties.getVersion();
 		final String result = "application: " + appName + " version: " + appVersion;
-		String uri = "http://104.208.78.166:7272/WeatherForecast";
+		String uri = "http://localhost:5000/WeatherForecast";
 
         RestTemplate restTemplate = new RestTemplate();
         String weatherForecast = restTemplate.getForObject(uri, String.class);
