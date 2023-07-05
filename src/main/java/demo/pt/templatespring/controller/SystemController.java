@@ -11,13 +11,17 @@ import org.springframework.web.client.RestTemplate;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.jdbc.core.JdbcTemplate;
 
 @RestController
 @RequestMapping("/system")
 public class SystemController {
 
-    @Autowired
+    	@Autowired
 	BuildProperties buildProperties;
+
+	@Autowired
+    	private JdbcTemplate jdbcTemplate;
 
 	private static final Logger logger = LogManager.getLogger(SystemController.class);
 
@@ -28,11 +32,14 @@ public class SystemController {
 		final String appVersion = buildProperties.getVersion();
 		final String result = "application: " + appName + " version: " + appVersion;
 		String uri = "http://localhost:5000/WeatherForecast";
+		String sql = "SELECT COUNT(datname) FROM pg_catalog.pg_database";
 
         RestTemplate restTemplate = new RestTemplate();
         String weatherForecast = restTemplate.getForObject(uri, String.class);
 
-        logger.info(result+" "+weatherForecast);
+	int countDB =  jdbcTemplate.queryForObject(sql, Integer.class);
+
+        logger.info(result+" "+countDB+" "+weatherForecast);
 		
 		return result;
 	}
